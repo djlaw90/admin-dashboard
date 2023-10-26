@@ -20,18 +20,33 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: 'sidebar header'
+                         'sidebar main';
 }
 
 header {
+    grid-area:header;
     background-color: var(--100-cyan);
 }
 
+main {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-areas: 'projects projects announcetrend';
+}
+
+.announcetrend {
+    grid-area: announcetrend;
+}
 
 .sidebar {
+    grid-area:sidebar;
     border: 1px solid black;
     color: white;
     background-color: var(--800-cyan);
-    max-width: 300px;
 }
 
 button {
@@ -41,9 +56,10 @@ button {
 
 
 .project-card-container {
+    grid-area: projects;
     display: grid;
-    max-width: 1000px;
-    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 10px;
 }
 
 .project-card-container, .announcement-container, .trending-container {
@@ -55,7 +71,6 @@ button {
 .card {
     background-color: white;
     border: 1px solid gray;
-    max-width: 250px;
     padding: 10px;
 }
 
