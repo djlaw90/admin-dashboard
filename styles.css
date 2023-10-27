@@ -12,14 +12,12 @@
     --950-cyan: #083344; 
 }
 
+/* GENERAL */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-img {
-    display: block;
 }
 
 body {
@@ -29,8 +27,32 @@ body {
     grid-template-areas: 'sidebar header'
                          'sidebar main';
     width: 100%;
-    background-color: var(--50-cyan);
+    background-color: var(--300-cyan);
 }
+
+button {
+    color: white;
+    background-color: var(--950-cyan);
+    width: 125px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.svg {
+    width: 2rem;
+}
+
+.svg.avatar {
+    width: 3.5rem;
+    border-radius: 50%;
+}
+
+/* HEADER */
 
 header {
     display: grid;
@@ -103,11 +125,21 @@ header {
     place-items: center;
 }
 
+/*Header, search input */
+
 .search {
     display: grid;
     grid-template-columns: 50px 1fr;
     justify-self: right;
 }
+
+.search-input {
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 10px;
+    border:none;
+}
+
 
 .search input {
     width: 420px;
@@ -118,91 +150,100 @@ header {
     justify-self: right;
 }
 
+.header-bottom .svg.avatar {
+    width: 4.5rem;
+}
+
+
+
+/* Main */
+
 main {
     display: grid;
     grid-area: main;
     grid-template-columns: 2fr 1fr;
     grid-template-areas: 'projects announcetrend';
-    background-color: var(--500-cyan);
+    margin: 20px;
 }
+
+main h2 {
+    margin-bottom: 20px;
+}
+
+/* Main Section, Announcements/Trending */
 
 .announcetrend {
     grid-area: announcetrend;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
-.announcement-container {
-    border: 1px solid black;
+.announcement-card:first-of-type, .trending-card:first-of-type {
+    border-radius: 20px 20px 0 0;
+}
+
+.announcement-card p {
+    color: #A9A9A9;
+    padding-bottom: 10px;
+}
+.announcement-card:nth-child(1) p {
+    border-bottom: 1px solid lightgray;
+}
+
+.announcement-card:nth-child(2) p {
+    border-bottom: 1px solid lightgray;
+}
+
+.announcement-card:last-of-type, .trending-card:last-of-type {
+    border-radius: 0 0 20px 20px;
 }
 
 .announcement-card, .trending-card {
-    max-width: 350px;
-    height: 100px;
+    width: 350px;
 }
-.sidebar {
+
+.announcement-card {
+    padding: 20px;
+}
+
+.trending-card {
     display: flex;
-    grid-area: sidebar;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-left: 20px;
-    height: 100%;
-    border: 1px solid black;
-    color: white;
-    background-color: var(--950-cyan);
-}
-
-.sidebar ul {
-    list-style-type: none;
-}
-
-.sidebar ul li {
-    font-size: 2rem;
-    gap: 15px;
-}
-
-.sidebar ul:first-child {
-    padding-top: 20px;
-}
-
-button {
-    color: white;
-    background-color: var(--950-cyan);
-    width: 125px;
     padding: 10px;
-    border-radius: 20px;
+    gap: 10px;
 }
 
+.trending-username {
+    font-weight: bold;
+}
+
+.trending-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Section, Projects */
 
 .project-card-container {
     grid-area: projects;
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 15px;
-    margin: 20px;
+    
 }
 
 .project-card {
     border-left: 10px solid var(--950-cyan);
     padding: 40px;
+    border-radius: 20px;
 }
 
-
-.card {
-    background-color: white;
-    border-radius: 10px;
+.project-card p {
+    color: #A9A9A9;
 }
 
-.svg {
-    width: 2rem;
-}
-
-.svg.avatar {
-    width: 3.5rem;
-    border-radius: 50%;
-}
-
-.header-bottom .svg.avatar {
-    width: 4.5rem;
-}
 
 .project-card-icons {
     display: flex;
@@ -214,14 +255,39 @@ button {
     margin-bottom: 10px;
 }
 
-.search-input {
-    font-size: 1.5rem;
-    border-radius: 10px;
-    padding: 10px;
-    border:none;
+/* Sidebar */
+
+.sidebar {
+    display: flex;
+    grid-area: sidebar;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 5vh;
+    padding-left: 5vh;
+    color: white;
+    background-color: var(--950-cyan);
 }
 
-.projects h2 {
-    margin-left: 20px;
-    margin-top: 20px;
+.sidebar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
+
+.sidebar ul li {
+    font-size: 2rem;
+}
+
+.sidebar ul:first-child {
+    padding-top: 5vh;
+}
+
+.sidebar ul:last-of-type {
+    padding-top: 10vh;
+}
+
+
+
+
+
