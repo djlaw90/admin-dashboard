@@ -54,6 +54,11 @@ button {
 
 /* HEADER */
 
+.logo {
+    width: 200px;
+    text-align: center;
+}
+
 header {
     display: grid;
     grid-area:header;
@@ -67,7 +72,7 @@ header {
     display: grid;
     grid-area: header-top;
     grid-template-columns: 4fr 3fr;
-    padding-top: 3vh;
+    padding-top: 2vh;
 }
 
 
@@ -91,6 +96,7 @@ header {
 
 .main-name {
     grid-area: main-name;
+    font-size: 2rem;
 }
 
 .header-top-right {
@@ -103,8 +109,13 @@ header {
     align-self: center;
 }
 
-.header-top-right img:nth-child(2) {
+.secondary-avatar {
     justify-self: center;
+}
+
+.user-name-header-small a {
+    text-decoration: none;
+    color: black;
 }
 
 .header-top-right span:last-child {
@@ -276,7 +287,12 @@ main h2 {
 }
 
 .sidebar ul li {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
 }
 
 .sidebar ul:first-child {
